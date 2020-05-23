@@ -1,0 +1,54 @@
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Ultimos Resultados</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Torneo</th>
+                <th>Cat.</th>
+                <th>Ronda</th>
+                <th>Player 1</th>
+                <th>Resultado</th>
+                <th>Player 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cate of resultadoC">
+
+                <td>{{ cate.nombre }}</td>
+                <td>{{ cate.categoria }}</td>
+                <td>{{ cate.ronda }}</td>
+                <td>{{ cate.P1 }}</td>
+                <td>{{ cate.resultado }}</td>
+                <td>{{ cate.P2 }}</td>
+
+              </tr>
+
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Torneo</th>
+                <th>Cat.</th>
+                <th>Ronda</th>
+                <th>Player 1</th>
+                <th>Resultado</th>
+                <th>Player 2</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>

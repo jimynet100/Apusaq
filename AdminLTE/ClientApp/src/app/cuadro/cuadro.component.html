@@ -1,0 +1,121 @@
+<input id="ckh2h" (click)="cargaH2H(this)" type="button" style="height:0px;width:0px;visibility:hidden" />
+<p *ngIf="!resultado"><em>Loading...</em></p>
+<div *ngFor="let resa of resultadoR">
+  <h2>Cuadros - {{ resa.torneo }}</h2>
+  <div class="card">
+    <div class="card-header">
+      <table width="100%">
+        <tr>
+          <td *ngFor="let emp of resa.matches">
+            <button type="button" class="btn btn-info btn-sm btn-block" (click)="CargarCruces(emp.ronda);">{{emp.ronda}} </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-12 table-responsive">
+  <div id="writeHere" class="tournament"></div>
+</div>
+
+<!-- /.modal -->
+<div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (hide)="cargaH2H(1)">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="card card-info">
+      <div class="card-header">
+        <h4 class="modal-title">Head to Head</h4>
+      </div>
+      <div class="modal-body">
+
+        <p *ngIf="!resultadoC"><em>Loading...</em></p>
+
+        <table class="table table-bordered table-striped table-sm" style="font-size:x-small" cellpadding="0">
+          <thead>
+            <tr>
+
+              <th>Torneo</th>
+              <th>Cat.</th>
+              <th>Ronda</th>
+              <th>Player 1</th>
+              <th>Resultado</th>
+              <th>Player 2</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cate of resultadoC">
+
+              <td>{{ cate.nombre }}</td>
+              <td>{{ cate.categoria }}</td>
+              <td>{{ cate.ronda }}</td>
+              <td>{{ cate.P1 }}</td>
+              <td>{{ cate.resultado }}</td>
+              <td>{{ cate.P2 }}</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="card card-info">
+      <div class="card-header">
+
+        <h4 class="modal-title">Ultimos partidos</h4>
+
+      </div>
+      <div class="modal-body">
+
+        <p *ngIf="!resultadoC"><em>Loading...</em></p>
+        <table class="table table-bordered table-striped table-sm" style="font-size:x-small" cellpadding="0">
+          <thead>
+            <tr>
+
+              <th>Torneo</th>
+              <th>Cat.</th>
+              <th>Ronda</th>
+              <th>Player 1</th>
+              <th>Resultado</th>
+              <th>Player 2</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cate of resultadoC">
+
+              <td>{{ cate.nombre }}</td>
+              <td>{{ cate.categoria }}</td>
+              <td>{{ cate.ronda }}</td>
+              <td>{{ cate.P1 }}</td>
+              <td>{{ cate.resultado }}</td>
+              <td>{{ cate.P2 }}</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+

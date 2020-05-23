@@ -1,0 +1,45 @@
+<h2>Torneos Activos</h2>
+<p *ngIf="!resultado"><em>Loading...</em></p>
+
+<div class="animated fadeIn">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card" *ngFor="let resa of resultado">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> {{ resa.torneo }}
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+
+                <th>Categoria</th>
+                <th>Tipo</th>
+                <th>Cupos</th>
+                <th>Ronda</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cate of resa.categoria">
+
+                <td><a [routerLink]="['/cuadro']" [queryParams]="{id: cate.idTcategoria}">{{ cate.cCategoria }}</a></td>
+                <td>{{ cate.Tipo }}</td>
+                <td>{{ cate.cupos }}</td>
+                <td>{{ cate.ronda }}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>
+
+

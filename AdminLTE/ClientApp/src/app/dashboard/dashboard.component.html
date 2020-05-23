@@ -1,0 +1,193 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="m-0 text-dark">Dynamo - {{ nombre }}</h1>
+      </div><!-- /.col -->
+
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<div class="container-fluid" style="font-size:small">
+
+  <div class="row">
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h3>{{avance.toFixed(2)}}<sup style="font-size: 20px">%</sup></h3>
+
+          <p>Avance</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-pie-graph"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-success">
+        <div class="inner">
+          <h3>{{passrate.toFixed(2)}}<sup style="font-size: 20px">%</sup></h3>
+
+          <p>Pass Rate</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-thumbs-up"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-warning">
+        <div class="inner">
+          <h3>{{pendiente}}</h3>
+
+          <p>Pendientes</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-danger">
+        <div class="inner">
+          <h3>{{error}}</h3>
+
+          <p>Error</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-thumbs-down"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+  </div>
+
+  <!-- Main row -->
+
+  <div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+
+      <!-- /.row -->
+      <!-- TABLE: Ventana -->
+      <div class="card" *ngFor="let resa of resultado">
+        <div class="card-header border-transparent">
+          <h3 class="card-title">{{ resa.torneo }}</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table m-0">
+              <thead>
+                <tr>
+                  <th>Negocio</th>
+                  <th>Avance</th>
+                  <th>Error</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cate of resa.requerimientos">
+                  <td>{{ cate.segmento }}</td>
+                  <td>
+                    <div class="progress-group">
+                      {{ cate.tema }}
+                      <span class="float-right"><b>{{ cate.Q -cate.Pendiente }}</b>/{{ cate.Q }}</span>
+                      <div class="progress progress-sm">
+                        <div [ngClass]="((cate.Q -cate.Pendiente)/cate.Q > 0.5) ? 'progress-bar bg-success' : 'progress-bar bg-danger'" [ngStyle]="{'width': ((cate.Q -cate.Pendiente)/cate.Q * 100) + '%' }"></div>
+                      </div>
+                    </div>
+                    <!-- /.progress-group -->
+                  </td>
+                  <td>{{ cate.Errores }}</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.card-body -->
+
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+    <!-- /.col -->
+  </div>
+
+  <div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+
+      <!-- /.row -->
+      <!-- TABLE: LATEST ORDERS -->
+      <div class="card">
+        <div class="card-header border-transparent">
+          <h3 class="card-title">Hallazgos</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table m-0">
+              <thead>
+                <tr>
+                  <th>Ticket</th>
+                  <th>Estado</th>
+                  <th>Criticidad</th>
+                  <th>Observación</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let hall of hallazgo">
+                  <td>{{ hall.Ticket }}</td>
+                  <td>{{ hall.Estado }}</td>
+                  <td>{{ hall.Criticidad }}</td>
+                  <td>{{ hall.Observacion }}</td>
+                  <td>{{ hall.Responsable }}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.card-body -->
+
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+    <!-- /.col -->
+  </div>
+
+  <!-- /.row -->
+</div><!--/. container-fluid -->

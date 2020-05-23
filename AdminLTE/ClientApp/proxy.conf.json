@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://telefonica-dashboard-back.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,44 @@
+<h2>Ranking</h2>
+<p *ngIf="!resultado"><em>Loading...</em></p>
+
+<div class="animated fadeIn">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card" *ngFor="let resa of resultado">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> {{ resa.categoria }}
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+
+                <th>Puesto</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Puntaje</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cate of resa.ranking">
+                                
+                <td>{{ cate.puesto }}</td>
+                <td>{{ cate.Nombres }}</td>
+                <td>{{ cate.Apellidos }}</td>
+                <td>{{ cate.puntaje }}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>
+
