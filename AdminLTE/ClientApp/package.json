@@ -70,7 +70,7 @@
     "jquery-ui-dist": "^1.12.1",
     "jqvmap-novulnerability": "^1.5.1",
     "jsgrid": "^1.5.3",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "moment": "^2.24.0",
     "overlayscrollbars": "^1.9.1",
     "pdfmake": "^0.1.58",
